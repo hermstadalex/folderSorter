@@ -9,12 +9,12 @@ def createFolders():
         os.makedirs('OlderFiles')
 
 def folderSorter():
-    timeSplitter = 60*60*24*30
+    timeSplitter = 60*60*24*30 # Time value at which files are separated
+    createFolders()
     files = os.listdir('.')
 
-    x = time.time() - os.path.getctime(files[1])
     for file in files:
-        if file != 'CurrentFiles' or file != 'OlderFiles':
+        if file != 'CurrentFiles' and file != 'OlderFiles' and file != '.git':
             fileSecondsExisted = time.time() - os.path.getctime(file)
             if fileSecondsExisted >= timeSplitter:
                 shutil.move(file, 'OlderFiles')
