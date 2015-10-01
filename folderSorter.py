@@ -19,7 +19,7 @@ def folderSorter():
             if fileSecondsExisted >= timeSplitter:
                 shutil.move(file, 'OlderFiles')
             else if fileSecondsExisted < timeSplitter:
-                shutil.move(file, 'NewerFiles')
+                shutil.move(file, 'CurrentFiles')
             else:
                 print "Error has occured"
                 return
