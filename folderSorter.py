@@ -8,6 +8,19 @@ def createFolders():
     if not os.path.exists("./OlderFiles"):
         os.makedirs('OlderFiles')
 
+def unpackFolders():
+    moveToLoc = os.getcwd()
+    os.chdir('OlderFiles')
+    files = os.listdir('.')
+    for file in files:
+        shutil.move(file, moveToLoc)
+    os.chdir(moveToLoc)
+    os.chdir('CurrentFiles')
+    files = os.listdir('.')
+    for file in files:
+        shutil.move(file, moveToLoc)
+
+
 def folderSorter():
     timeSplitter = 60*60*24*30 # Time value at which files are separated
     createFolders()
@@ -28,6 +41,6 @@ def folderSorter():
 
 
 def main():
-    folderSorter()
+    unpackFolders()
 
 main()
