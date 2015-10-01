@@ -14,12 +14,12 @@ def folderSorter():
     files = os.listdir('.')
 
     for file in files:
-        if file != 'CurrentFiles' and file != 'OlderFiles' and file != '.git'
-        and file != 'folderSorter.py' and file != 'README.md':
+        if (file != 'CurrentFiles') and (file != 'OlderFiles') and (file !=
+        '.git') and (file != 'folderSorter.py') and (file != 'README.md'):
             fileSecondsExisted = time.time() - os.path.getctime(file)
             if fileSecondsExisted >= timeSplitter:
                 shutil.move(file, 'OlderFiles')
-            else if fileSecondsExisted < timeSplitter:
+            elif fileSecondsExisted < timeSplitter:
                 shutil.move(file, 'CurrentFiles')
             else:
                 print "Error has occured"
