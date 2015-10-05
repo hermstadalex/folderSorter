@@ -1,8 +1,16 @@
 import os
 import time
-import shutil
+import shutili
+
+""" This program separates the files and folders in a directory into a folder for
+    new files and a folder for old files. Both the number of days a file is to be
+    considered old, and the names of the new and old folders are given by input
+    from the user.
+"""
 
 
+# Mostly written for testing. Unpacks the oldFolder and newFolder and moves everything
+# back out into the main directory.
 def unpackFolders(newFolderName, oldFolderName):
     moveToLoc = os.getcwd()
     os.chdir(oldFolderName)
@@ -16,6 +24,9 @@ def unpackFolders(newFolderName, oldFolderName):
         shutil.move(file, moveToLoc)
     os.chdir(moveToLoc)
 
+# Gets the user's input for either the folder names or the day count distnguisher.
+# If the boolean argument folderMode is true, the day count distinguisher is not
+# asked for.
 def getUserInput(folderMode):
     if folderMode != True:
         timeSplitterDays = int(raw_input("Enter the number of days you want to" +
